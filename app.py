@@ -21,7 +21,7 @@ HTML = """
 </head>
 <body>
 
-<h1>PDF Q&A Chatbot - CI/CD Test</h1>
+<h1>PDF Q&A Chatbot</h1>
 
 <form method="post">
 <input type="text" name="question" style="width:400px">
