@@ -41,9 +41,16 @@ async def home():
 @app.post("/", response_class=HTMLResponse)
 async def ask(question: str = Form(...)):
 
-    if question.lower() in pdf_text.lower():
-        answer_text = "Found in PDF"
-    else:
-        answer_text = "Answer not found in uploaded document."
+    answer_text = "Answer not found in uploaded document."
+
+    lines = pdf_text.split("\n")
+
+    for i, line in enumerate(lines):
+        if question.lower() in line.lower():
+
+            if i + 1 < len(lines):
+                answer_text = lines[i + 1]
+
+            break
 
     return HTML.format(answer=answer_text)
