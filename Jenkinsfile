@@ -12,15 +12,14 @@ pipeline {
         }
 
         stage('Install Dependencies') {
-            steps {
-                dir('/var/lib/jenkins/pdf-qa-chatbot') {
-                    sh '''
-                    source venv/bin/activate
-                    pip install -r requirements.txt
-                    '''
-                }
-            }
+    steps {
+        dir('/var/lib/jenkins/pdf-qa-chatbot') {
+            sh '''
+            ./venv/bin/pip install -r requirements.txt
+            '''
         }
+    }
+}
 
         stage('Restart Service') {
             steps {
