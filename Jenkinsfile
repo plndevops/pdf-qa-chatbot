@@ -20,13 +20,3 @@ pipeline {
         }
     }
 }
-
-        stage('Restart Service') {
-            steps {
-                sh '''
-                sudo systemctl restart pdfchatbot
-                '''
-            }
-        }
-    }
-}
