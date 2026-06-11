@@ -24,4 +24,4 @@ uvicorn app:app --host 0.0.0.0 --port 8000
 
 #testing
 ## Jenkins CICD
-## Webhook Test - Build Chain Master and agent model
+## Webhook Test - Build Chain
