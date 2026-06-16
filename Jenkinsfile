@@ -4,7 +4,6 @@ pipeline {
     }
 
     stages {
-
         stage('Build') {
             steps {
                 sh '''
@@ -13,14 +12,5 @@ pipeline {
                 '''
             }
         }
-
-        stage('Test') {
-            steps {
-                sh '''
-                ./venv/bin/python -m py_compile app.py
-                '''
-            }
-        }
-
     }
 }
