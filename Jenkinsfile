@@ -5,18 +5,11 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/plndevops/pdf-qa-chatbot.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh '''
                 python3 -m venv venv
-                . venv/bin/activate
-                pip install -r requirements.txt
+                ./venv/bin/pip install -r requirements.txt
                 '''
             }
         }
@@ -24,8 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                . venv/bin/activate
-                python -m py_compile app.py
+                ./venv/bin/python -m py_compile app.py
                 '''
             }
         }
