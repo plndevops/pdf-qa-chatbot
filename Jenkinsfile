@@ -19,7 +19,7 @@ pipeline {
             mail to: 'testing0003099@gmail.com',
                  subject: "Build Success - ${env.JOB_NAME}",
                  body: """
-Build #${env.BUILD_NUMBER} completed successfully.
+echo "Build #${env.BUILD_NUMBER} completed successfully"
 
 echo "Job Name: ${env.JOB_NAME}"
 echo "Node: ${env.NODE_NAME}"
