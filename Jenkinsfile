@@ -4,6 +4,16 @@ pipeline {
     }
 
     stages {
+
+        stage('Environment Info') {
+            steps {
+                echo "Build Number: ${env.BUILD_NUMBER}"
+                echo "Job Name: ${env.JOB_NAME}"
+                echo "Node Name: ${env.NODE_NAME}"
+                echo "Workspace: ${env.WORKSPACE}"
+            }
+        }
+
         stage('Build') {
             steps {
                 sh '''
@@ -17,21 +27,24 @@ pipeline {
     post {
         success {
             mail to: 'testing0003099@gmail.com',
-                 subject: "Build Success - ${env.JOB_NAME}",
+                 subject: "✅ Build Success - ${env.JOB_NAME}",
                  body: """
-echo "Build #${env.BUILD_NUMBER} completed successfully"
+Build completed successfully.
 
-echo "Job Name: ${env.JOB_NAME}"
-echo "Node: ${env.NODE_NAME}"
-echo "Workspace: ${env.WORKSPACE}"
+Build Number : ${env.BUILD_NUMBER}
+Job Name     : ${env.JOB_NAME}
+Node Name    : ${env.NODE_NAME}
+Workspace    : ${env.WORKSPACE}
 """
         }
 
         failure {
             mail to: 'testing0003099@gmail.com',
-                 subject: "Build Failed - ${env.JOB_NAME}",
+                 subject: "❌ Build Failed - ${env.JOB_NAME}",
                  body: """
-Build #${env.BUILD_NUMBER} failed.
+Build failed.
+
+Build Number : ${env.BUILD_NUMBER}
 
 Please check Jenkins console logs.
 """
