@@ -21,9 +21,9 @@ pipeline {
                  body: """
 Build #${env.BUILD_NUMBER} completed successfully.
 
-Job Name: ${env.JOB_NAME}
-Node: ${env.NODE_NAME}
-Workspace: ${env.WORKSPACE}
+echo "Job Name: ${env.JOB_NAME}"
+echo "Node: ${env.NODE_NAME}"
+echo "Workspace: ${env.WORKSPACE}"
 """
         }
 
