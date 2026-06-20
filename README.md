@@ -2,7 +2,7 @@
 
 A simple PDF Question Answer Chatbot built using FastAPI and PyMuPDF.
 
-## Technologies Used
+### Technologies Used
 - Python
 - FastAPI
 - Uvicorn
